@@ -173,6 +173,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     move_widevine_data.sh
 
+# Dirac
+PRODUCT_PACKAGES += \
+    Dirac
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.dirac.acs.controller=qem \
+    persist.dirac.acs.ignore_error=1 \
+    persist.dirac.acs.storeSettings=1 \
+    ro.audio.soundfx.dirac=true
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
