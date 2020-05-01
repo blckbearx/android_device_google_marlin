@@ -2,5 +2,11 @@
   {
     "repository": "android_kernel_google_marlin",
     "target_path": "kernel/google/marlin"
-  }
+  },
+  {
+      "repository":"PixelBoot/packages_apps_GoogleCamera_marlin",
+      "target_path":"packages/apps/GoogleCamera",
+      "branch":"ten",
+      "remote":"gitlab"
+   }
 ]
