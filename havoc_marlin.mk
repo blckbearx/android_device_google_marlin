@@ -29,4 +29,4 @@ BUILD_FINGERPRINT := google/marlin/marlin:8.1.0/OPM1.171019.021/4565141:user/rel
 $(call inherit-product-if-exists, vendor/google/marlin/marlin-vendor.mk)
 
 # Havoc
-export export HAVOC_BUILD_TYPE=Unofficial
+export HAVOC_BUILD_TYPE=Unofficial
