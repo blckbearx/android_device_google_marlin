@@ -29,4 +29,4 @@ BUILD_FINGERPRINT := google/sailfish/sailfish:8.1.0/OPM1.171019.021/4565141:user
 $(call inherit-product-if-exists, vendor/google/sailfish/sailfish-vendor.mk)
 
 # Havoc
-export export HAVOC_BUILD_TYPE=Unofficial
+export HAVOC_BUILD_TYPE=Unofficial
