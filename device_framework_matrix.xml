@@ -17,14 +17,7 @@
             <instance>vr</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.lineage.trust</name>
-        <version>1.0</version>
-        <interface>
-            <name>IUsbRestrict</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+
     <hal format="hidl" optional="true">
         <name>vendor.nxp.nxpnfc</name>
         <version>1.0</version>
@@ -34,6 +27,7 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+
         <name>vendor.qti.atcmdfwd</name>
         <version>1.0</version>
         <interface>

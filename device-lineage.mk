@@ -29,7 +29,7 @@ PRODUCT_PACKAGES += \
     PresencePolling
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-arrow
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -38,10 +38,6 @@ PRODUCT_PACKAGES += \
 # Tool
 PRODUCT_PACKAGES += \
     libtinyxml
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
