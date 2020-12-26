@@ -11,6 +11,7 @@ $(call inherit-product, device/google/marlin/aosp_sailfish.mk)
 -include device/google/marlin/sailfish/device-lineage.mk
 
 ## Device identifier. This must come after all inclusions
+DEVICE_MAINTAINER := blckbear
 PRODUCT_NAME := arrow_sailfish
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Pixel
