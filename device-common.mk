@@ -193,6 +193,8 @@ PRODUCT_PACKAGES += \
     Dirac
 
 PRODUCT_PRODUCT_PROPERTIES += \
+    hpx_send_params=1 \
+    persist.audio.dirac.speaker=true \
     persist.dirac.acs.controller=qem \
     persist.dirac.acs.ignore_error=1 \
     persist.dirac.acs.storeSettings=1 \
