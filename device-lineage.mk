@@ -23,7 +23,7 @@ PRODUCT_PACKAGES += \
     PresencePolling
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-arrow
 
 # Sensors
 PRODUCT_PACKAGES += \
