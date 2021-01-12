@@ -4,7 +4,6 @@ AB_OTA_PARTITIONS += vendor
 # Camera
 PRODUCT_PACKAGES += \
     libmm-qcamera \
-    Snap
 
 # DRM
 PRODUCT_PACKAGES += \

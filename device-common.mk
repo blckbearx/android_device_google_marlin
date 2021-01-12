@@ -694,4 +694,9 @@ PRODUCT_PACKAGES += \
     misc_writer
 
 # GoogleCamera
+ifeq ($(ARROW_GAPPS), true)
 $(call inherit-product, packages/apps/GoogleCamera/gcam.mk)
+else
+PRODUCT_PACKAGES += \
+    Snap
+endif
