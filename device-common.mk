@@ -701,3 +701,7 @@ PRODUCT_PACKAGES += \
 # Wi-Fi Overlay
 PRODUCT_PACKAGES += \
     WifiOverlay
+
+#Remove packages
+PRODUCT_PACKAGES += \
+    removepackages
