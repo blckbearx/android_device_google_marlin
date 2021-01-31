@@ -200,6 +200,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.dirac.acs.storeSettings=1 \
     ro.audio.soundfx.dirac=true
 
+#Remove packages
+PRODUCT_PACKAGES += \
+    removepackages
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
