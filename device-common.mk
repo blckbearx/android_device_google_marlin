@@ -697,3 +697,7 @@ PRODUCT_COPY_FILES += \
 # Tethering
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay
+
+#Remove packages
+PRODUCT_PACKAGES += \
+    removepackages
