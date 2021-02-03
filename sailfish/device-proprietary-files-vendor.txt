@@ -685,3 +685,9 @@ vendor/qcril_database/upgrade/7_singapore_ecc_995.sql
 vendor/qcril_database/upgrade/8_germany_ecc_110.sql
 vendor/qcril_database/upgrade/9_remove_germany_ecc_110.sql
 vendor/qcril.db
+
+# Dirac - from Xiaomi
+vendor/lib/soundfx/libdirac.so
+vendor/lib/libDiracAPI_SHARED.so
+vendor/etc/diracmobile.config
+vendor/etc/diracvdd.bin 

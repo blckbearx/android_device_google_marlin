@@ -4,7 +4,6 @@ AB_OTA_PARTITIONS += vendor
 # Camera
 PRODUCT_PACKAGES += \
     libmm-qcamera \
-    Snap
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -24,7 +23,7 @@ PRODUCT_PACKAGES += \
     PresencePolling
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-arrow
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -34,6 +33,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libtinyxml
 
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
