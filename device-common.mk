@@ -177,6 +177,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     move_widevine_data.sh
 
+#Remove packages
+PRODUCT_PACKAGES += \
+    removepackages
+
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
