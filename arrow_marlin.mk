@@ -2,7 +2,8 @@
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-# Inherit some common Lineage stuff.
+# Inherit some common Arrow stuff.
+TARGET_BOOT_ANIMATION_RES := 1440
 $(call inherit-product, vendor/arrow/config/common.mk)
 
 # Inherit device configuration
