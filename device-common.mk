@@ -188,8 +188,8 @@ PRODUCT_PACKAGES += \
     sound_trigger.primary.msm8996
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@5.0-impl:32 \
-    android.hardware.audio.effect@5.0-impl:32 \
+    android.hardware.audio@6.0-impl:32 \
+    android.hardware.audio.effect@6.0-impl:32 \
     android.hardware.soundtrigger@2.2-impl:32
 
 PRODUCT_PACKAGES += \
@@ -236,6 +236,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.dumpstate@1.0-service.marlin
 
+# DRM HAL
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.3-service.clearkey
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -243,7 +247,8 @@ PRODUCT_PACKAGES += \
     hostapd \
     wificond \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    WifiOverlay
 
 #ANT+ stack
 PRODUCT_PACKAGES += \
@@ -288,13 +293,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     nanoapp_cmd
 
-# sensor utilities (only for userdebug and eng builds)
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
+# sensor utilities (only for eng builds)
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += \
     nanotool \
     sensortest
-endif
 endif
 
 PRODUCT_COPY_FILES += \
@@ -366,13 +369,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.mode=concurrent
 
 # Enable SM log mechanism by default
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.smlog_switch=1 \
     ro.radio.log_prefix="modem_log_" \
     ro.radio.log_loc="/data/smlog_dump"
-endif
 endif
 
 # Disable snapshot feature
@@ -409,8 +410,7 @@ PRODUCT_COPY_FILES += \
 INIT_COMMON_DIAG_RC := $(TARGET_COPY_OUT_VENDOR)/etc/init/init.diag.rc
 
 # Modem debugger
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.userdebug:$(INIT_COMMON_DIAG_RC)
 
@@ -420,7 +420,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 else
 PRODUCT_COPY_FILES += \
     device/google/marlin/init.common.diag.rc.user:$(INIT_COMMON_DIAG_RC)
-endif
 endif
 
 # Subsystem silent restart
@@ -533,14 +532,12 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery:64 \
     android.hardware.boot@1.0-service
 
-# Library used for VTS tests  (only for userdebug and eng builds)
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
+# Library used for VTS tests  (only for eng builds)
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 # For VTS profiling.
 PRODUCT_PACKAGES += \
      libvts_profiling \
      libvts_multidevice_proto
-endif
 endif
 
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
@@ -553,11 +550,9 @@ PRODUCT_COPY_FILES += \
 
 # Bootloader HAL used for A/B updates.
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
     bootctrl.msm8996 \
     bootctrl.msm8996.recovery
-
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -620,11 +615,9 @@ PRODUCT_PACKAGES += \
     toybox_static
 
 # b/30349163
-# Set Marlin/Sailfish default log size on userdebug/eng build to 1M
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-ifeq (,$(filter lineage_marlin lineage_sailfish, $(TARGET_PRODUCT)))
+# Set Marlin/Sailfish default log size on eng build to 1M
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += ro.logd.size=1M
-endif
 endif
 
 # b/32109329
@@ -645,7 +638,12 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/permissions/privapp-permissions-marlin.xml:system/etc/permissions/privapp-permissions-marlin.xml
 
 PRODUCT_PACKAGES += \
+    com.android.vndk.current \
     vndk-sp
+
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite-v29.so \
+    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v29.so
 
 # Marlin/Sailfish kernel doesn't have HEH filename encryption
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -659,6 +657,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.marlin
 
+# HIDL
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
+
 # default atrace HAL
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
@@ -669,3 +674,15 @@ PRODUCT_PACKAGES_DEBUG += a_sns_test
 # Write flags to the vendor space in /misc partition.
 PRODUCT_PACKAGES += \
     misc_writer
+
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
+
+# Component overrides
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+
+# Tethering
+PRODUCT_PACKAGES += \
+    TetheringConfigOverlay

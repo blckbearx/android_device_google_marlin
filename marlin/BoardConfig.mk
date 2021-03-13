@@ -74,6 +74,7 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP  := "ap"
 WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
@@ -83,7 +84,6 @@ OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x02000000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
-BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 4096
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -101,9 +101,9 @@ BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_ROOT_EXTRA_FOLDERS := firmware firmware/radio persist
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/lib/dsp:/dsp
 
-BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy
 ifneq ($(filter lineage_marlin marlin marlinf, $(TARGET_PRODUCT)),)
-BOARD_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
+BOARD_VENDOR_SEPOLICY_DIRS += device/google/marlin/sepolicy/verizon
 endif
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR := device/google/marlin/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/google/marlin/sepolicy/private
@@ -135,9 +135,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 TARGET_NO_RPC := true
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-
-#Let charger mode enter suspend
-BOARD_CHARGER_ENABLE_SUSPEND := true
 
 #Enable Peripheral Manager
 TARGET_PER_MGR_ENABLED := true
@@ -172,7 +169,7 @@ PROTOBUF_SUPPORTED := false
 #Add NON-HLOS files for ota upgrade
 ADD_RADIO_FILES := true
 
-TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libbootloader_message libfstab
+TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub libfstab
 
 #Add support for firmare upgrade on 8996
 HAVE_SYNAPTICS_DSX_FW_UPGRADE := true
