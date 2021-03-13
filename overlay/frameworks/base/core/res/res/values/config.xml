@@ -175,9 +175,6 @@
     <!-- Screen brightness when dozing. -->
     <integer name="config_screenBrightnessDoze">13</integer>
 
-    <!-- Whether the display blanks itself when going from a doze to a non-doze state -->
-    <bool name="config_displayBlanksAfterDoze">true</bool>
-
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
     <integer name="config_screenBrightnessSettingDefault">98</integer>
@@ -436,4 +433,25 @@
          etc. dialogs. -->
     <string translatable="false" name="config_appsNotReportingCrashes">com.qualcomm.qcrilmsgtunnel</string>
 
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
+    <!-- Specifies whether to decouple the auto-suspend state of the device from the display on/off state. -->
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+
+    <!-- Allow automatic adjusting of the screen brightness while dozing in low power state. -->
+    <bool name="config_allowAutoBrightnessWhileDozing">true</bool>
+
+    <!-- Whether the display blanks itself when going from a doze to a non-doze state -->
+    <bool name="config_displayBlanksAfterDoze">false</bool>
+
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
+    <!-- If AOD can show an ambient version of the wallpaper -->
+    <bool name="config_dozeSupportsAodWallpaper">true</bool>
 </resources>
