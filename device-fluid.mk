@@ -23,7 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-fluid
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -32,10 +32,6 @@ PRODUCT_PACKAGES += \
 # Tool
 PRODUCT_PACKAGES += \
     libtinyxml
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
