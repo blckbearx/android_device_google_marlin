@@ -6,6 +6,11 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     Snap
 
+# Dalvik
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat64.enabled=true \
+    ro.sys.fw.dex2oat_thread_count=8
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.2-service.clearkey
@@ -16,12 +21,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Google Assistant
 PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
-
-# IMS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    RcsService \
-    PresencePolling
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay-lineage
@@ -37,3 +36,7 @@ PRODUCT_PACKAGES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/google/interfaces

@@ -599,7 +599,7 @@ WPA += wpa_supplicant_wcn.conf
 WPA += wpa_supplicant_ath6kl.conf
 WPA += wpa_supplicant
 WPA += hs20-osu-client
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 WPA += wpa_cli
 endif
 
@@ -775,7 +775,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += qcril.db
 
 # GPT utils library
-PRODUCT_PACKAGES += libgptutils
+PRODUCT_PACKAGES += libgptutils.marlin
+PRODUCT_PACKAGES += libgptutils.marlin.recovery
 
 # vcard jar
 PRODUCT_PACKAGES += vcard
