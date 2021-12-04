@@ -24,6 +24,10 @@ TARGET_GAPPS_ARCH := arm64
 TARGET_INCLUDE_MINIMAL_GAPPS := true
 endif
 
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.fluid.maintainer=blckbear \
+  ro.fluid.cpu=MSM8996 Pro-AB
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=sailfish \
     PRIVATE_BUILD_DESC="sailfish-user 10 QP1A.191005.007.A3 5972272 release-keys"
