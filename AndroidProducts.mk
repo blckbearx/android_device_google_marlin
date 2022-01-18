@@ -5,5 +5,5 @@ PRODUCT_MAKEFILES := \
 	$(LOCAL_DIR)/lineage_sailfish.mk
 
 COMMON_LUNCH_CHOICES := \
-	aosp_marlin-userdebug \
-	aosp_sailfish-userdebug
+	lineage_marlin-userdebug \
+	lineage_sailfish-userdebug
