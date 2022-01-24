@@ -28,3 +28,7 @@ userdebug_or_eng(`
 get_prop(system_server, exported_camera_prop);
 get_prop(system_server, userspace_reboot_config_prop);
 get_prop(system_server, userspace_reboot_exported_prop);
+
+# Smart Charging
+allow system_server sysfs_battery_supply:dir search;
+allow system_server sysfs_battery_supply:file { getattr open write read };
