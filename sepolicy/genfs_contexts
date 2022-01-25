@@ -88,3 +88,6 @@ genfscon debugfs /fg_memif                 u:object_r:debugfs_fg_sram:s0
 
 # Smart Charging
 genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/battery_charging_enabled           u:object_r:sysfs_battery_supply:s0
+
+# Extended Battery Info
+genfscon sysfs /devices/soc/qpnp-fg-17/power_supply/bms                                u:object_r:sysfs_battery_supply:s0
