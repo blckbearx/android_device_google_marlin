@@ -11,3 +11,5 @@ allow hal_health_default persist_file:dir search;
 allow hal_health_default kmsg_device:chr_file { open write };
 allow hal_health_default sysfs_msm_subsys:file { write };
 allow hal_health_default sysfs_batteryinfo:file rw_file_perms;
+allow hal_health_default sysfs_battery_supply:file rw_file_perms;
+allow hal_health_default sysfs_battery_supply:dir search;
