@@ -91,3 +91,6 @@ genfscon sysfs /devices/soc/qpnp-smbcharger-16/power_supply/battery/battery_char
 
 # Extended Battery Info
 genfscon sysfs /devices/soc/qpnp-fg-17/power_supply/bms                                u:object_r:sysfs_battery_supply:s0
+
+# OEM Fast Charging detection
+genfscon sysfs /devices/soc/6a00000.ssusb/power_supply/usb/voltage_max                                u:object_r:sysfs_battery_supply:s0
