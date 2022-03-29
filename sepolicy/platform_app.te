@@ -8,3 +8,6 @@ userdebug_or_eng(`
    dontaudit platform_app proc_iomem:file getattr;
 ')
 
+# crDroid's CPU Info floating widget access to thermals
+allow platform_app sysfs_thermal:dir { search };
+allow platform_app sysfs_thermal:file { read open getattr };
