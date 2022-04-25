@@ -215,8 +215,11 @@ TARGET_RECOVERY_WIPE := device/google/marlin/recovery.wipe.common
 # Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_CONFIG := m1s1_defconfig
+TARGET_KERNEL_CONFIG := blckKernel_defconfig
 TARGET_KERNEL_SOURCE := kernel/google/marlin
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 
 # Wi-Fi
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
