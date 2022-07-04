@@ -550,9 +550,6 @@ on boot
     chown system system /sys/class/power_supply/battery/battery_charging_enabled
     chmod 0666 /sys/class/power_supply/battery/battery_charging_enabled
 
-    # Reduce GPU default power level
-    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
-
 on property:wc_transport.start_hci=true
     start vendor.start_hci_filter
 
