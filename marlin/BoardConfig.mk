@@ -228,4 +228,7 @@ TARGET_VENDOR_PROP += device/google/marlin/vendor.prop
 # Wi-Fi
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 
+#Surfaceflinger
+TARGET_USE_AOSP_SURFACEFLINGER := true
+
 -include vendor/google/marlin/BoardConfigVendor.mk
