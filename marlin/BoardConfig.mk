@@ -231,4 +231,7 @@ WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 # Verified Boot
 BOARD_AVB_ENABLE := false
 
+#Surfaceflinger
+TARGET_USE_AOSP_SURFACEFLINGER := true
+
 -include vendor/google/marlin/BoardConfigVendor.mk
