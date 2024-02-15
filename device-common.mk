@@ -416,9 +416,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES_ENG += \
     update_engine_client
 
-# Bluetooth SoC
+# Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=rome
+
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0.vendor
 
 # Property for loading BDA from bdaddress module in kernel
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -467,7 +470,7 @@ SOONG_CONFIG_thermal_hal_feature += \
 SOONG_CONFIG_thermal_hal_feature_pid ?= apply_1_0
 
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.pixel
+    android.hardware.thermal-service.pixel
 
 # Thermal utils
 PRODUCT_PACKAGES += \
@@ -600,10 +603,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode=aes-256-cts
 
-# Enable Perfetto traced
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.traced.enable=1
-
 # health HAL
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-service.marlin
@@ -629,7 +628,8 @@ AB_OTA_PARTITIONS += vendor
 
 # Camera
 PRODUCT_PACKAGES += \
-    libmm-qcamera
+    libmm-qcamera \
+    libminijail_32
 
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
